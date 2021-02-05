@@ -42,15 +42,19 @@ app.post('/getEmail', function(req, res) {
             };
             emails.create(EmailModel)
                 .then(res => {
+                    console.log({success: true, message: "email is saved successfully!"});
                     return res.send({success: true, message: "Email is saved successfully!"});
                 })
                 .catch(err => {
+                    console.log({success: false, message: "Something went wrong creating EmailModel"});
                     return res.send({success: false, message: "Something went wrong!"});
                 })
         } else {
+            console.log({success:false, message: "The email exists already in database!"});
             return res.send({success: false, message: "The email exists already in database!"});
         }
     }).catch(err => {
+        console.log({success: false, message: "Something went wrong finding one"});
         return res.send({success: false, message: "Something went wrong!"})
     });
 });
