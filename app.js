@@ -22,6 +22,10 @@ app.use(function(req, res, next) {
 const dbConnect = require('./config');
 dbConnect();
 
+app.get('/', function(req, res) {
+    return res.send("This url is working!");
+});
+
 app.post('/getEmail', function(req, res) {
     const emailData = req.body;
     const emails = require('./model/emails');
