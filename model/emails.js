@@ -4,7 +4,6 @@ const emailSchema = new mongoose.Schema(
         sender: String,
         receiver: String,
         title: String,
-        subject: String,
         body: String,
         email_id: String,
     },

@@ -36,10 +36,12 @@ app.post('/getEmail', function(req, res) {
             let EmailModel = {
                 sender: emailData.from.text,
                 receiver: emailData.to.text,
-                email_title: emailData.subject,
-                email_body: emailData.textAsHtml,
+                title: emailData.subject,
+                body: emailData.textAsHtml,
+                attachment: emailData.attachment,
                 email_id: emailData.messageId,
             };
+            console.log(emailData);
             emails.create(EmailModel)
                 .then(res => {
                     console.log({success: true, message: "email is saved successfully!"});
